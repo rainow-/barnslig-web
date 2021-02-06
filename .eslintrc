@@ -8,7 +8,8 @@
     "plugin:import/warnings",
     "plugin:jsx-a11y/recommended",
     "plugin:react-hooks/recommended",
-    "airbnb"
+    "prettier",
+    "prettier/react"
   ],
   "env": {
     "browser": true,
@@ -24,6 +25,9 @@
     }
   },
   "rules": {
+    "react/jsx-props-no-spreading": "off",
+    "react/forbid-prop-types": [1, { "forbid": ["any"] }],
+    "react/jsx-filename-extension": [1, { "extensions": [".js"] }]
   },
   "settings": {
     "react": {
