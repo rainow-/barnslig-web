@@ -1,6 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
-import Box from './Box';
-import Flex from './Flex';
+import Box from './common/Box';
+import Flex from './common/Flex';
 import useMousePosition from './hooks/useMousePosition';
 import useSize from './hooks/useSize';
 
@@ -18,8 +18,8 @@ const KingSquid = () => {
       const cy = height / 3;
 
       const phi = Math.atan2(mouse.y - cy, mouse.x - cx);
-      const nx = cx + 30 * Math.cos(phi);
-      const ny = cy + 30 * Math.sin(phi);
+      const nx = cx + 45 * Math.cos(phi);
+      const ny = cy + 45 * Math.sin(phi);
       setEyePosition({ x: nx, y: ny });
     }
   }, [mouse, size]);

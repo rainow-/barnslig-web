@@ -34,6 +34,11 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
+          <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossOrigin="true" />
+          <link rel="preload" href="/fonts/Inter-SemiBold.woff2" as="font" type="font/woff2" crossOrigin="true" />
+          <link rel="preload" href="/fonts/Inter-Italic.woff2" as="font" type="font/woff2" crossOrigin="true" />
+          <link rel="preload" href="/fonts/Inter-Light.woff2" as="font" type="font/woff2" crossOrigin="true" />
+          <link rel="preload" href="/fonts/Inter-MediumItalic.woff2" as="font" type="font/woff2" crossOrigin="true" />
           <link rel="stylesheet" href="/normalize.css" />
           <link rel="stylesheet" href="/reset.css" />
         </Head>

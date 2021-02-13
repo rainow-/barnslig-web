@@ -1,8 +1,44 @@
 import React from 'react';
 import t from 'prop-types';
 import Head from 'next/head';
-import { ThemeProvider } from 'styled-components';
-import theme from '../theme';
+import { ThemeProvider, createGlobalStyle } from 'styled-components';
+import { theme } from '../theme';
+
+const addFontFaces = ({ fontFaces }) =>
+  Object.keys(fontFaces).reduce((fontFacesCss, fontFace) => {
+    const { name, url, format } = fontFaces[fontFace];
+    return `
+      ${fontFacesCss}
+      @font-face {
+        font-family: "${name}";
+        src: url("${url}") format("${format}");
+        font-display: fallback;
+      }`;
+  }, '');
+
+const GlobalStyle = createGlobalStyle`
+  ${addFontFaces}
+
+  html,
+  body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #253237;
+
+    font-size: 16px;
+    font-family: ${({ fonts }) => fonts.body};
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: ${({ fonts }) => fonts.heading};
+  }
+
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+`;
 
 const CustomApp = ({ Component, pageProps }) => (
   <>
@@ -10,6 +46,7 @@ const CustomApp = ({ Component, pageProps }) => (
       <title>Barnslig</title>
       <link rel="icon" href="/favicon.ico" />
     </Head>
+    <GlobalStyle fontFaces={theme.fontFaces} fonts={theme.fonts} />
     <ThemeProvider theme={theme}>
       <Component {...pageProps} />
     </ThemeProvider>
