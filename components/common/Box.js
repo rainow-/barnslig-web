@@ -14,7 +14,7 @@ import {
   zIndex,
   background
 } from 'styled-system';
-import { aliases } from '../theme';
+import { aliases } from '../../theme';
 
 const Box = styled.div`
   ${aliases}
