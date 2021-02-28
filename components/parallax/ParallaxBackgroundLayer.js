@@ -1,16 +1,16 @@
 import React from 'react';
 import t from 'prop-types';
-import { ParallaxLayer } from 'react-spring/renderprops-addons';
+import { ParallaxLayer } from '@react-spring/parallax';
 
-const ParallaxBackgroundLayer = ({ offset, speed, factor = 1, imgSrc }) => (
+const ParallaxBackgroundLayer = ({ imgSrc, ...props }) => (
   <ParallaxLayer
-    offset={offset}
-    speed={speed}
-    factor={factor}
+    offset={0}
+    speed={0}
     style={{
       backgroundImage: `url(${imgSrc})`,
       backgroundSize: 'cover'
     }}
+    {...props}
   />
 );
 

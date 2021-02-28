@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@react-hook/resize-observer": "1.1.2",
+    "@react-spring/parallax": "9.0.0-rc.3",
     "framer-motion": "3.3.0",
     "next": "10.0.6",
     "next-transpile-modules": "6.2.0",

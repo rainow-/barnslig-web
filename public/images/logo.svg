@@ -2,7 +2,7 @@
      width="16.9306in" height="16.9306in"
      viewBox="0 0 1219 1219">
   <path id="Barnslig Logo"
-        fill="#F8C8DE" stroke="#F8C8DE" stroke-width="1"
+        fill="black" stroke="black" stroke-width="1"
         d="M 612.02,158.83
            C 601.33,162.82 606.91,175.15 614.98,173.26
              622.91,171.40 623.64,158.57 612.02,158.83 Z

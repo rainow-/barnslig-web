@@ -4,6 +4,7 @@ import Grid from './common/Grid';
 import Image from 'next/image';
 import Box from './common/Box';
 import AnimatedLogo from './AnimatedLogo';
+import AnimatedCollage from './AnimatedCollage';
 
 const Collage = styled(Box)``;
 const collage = {
@@ -42,7 +43,7 @@ const darkness = {
   gridArea: ['27 / 1 / 37 / 37'],
 };
 
-const Hero = () => {
+const TestHero = () => {
   return (
     <Grid
       bg="pink"
@@ -59,7 +60,7 @@ const Hero = () => {
         <Image src="/images/Untitled_Artwork.png" layout="fill" objectFit="cover" objectPosition="top" />
       </Rainbow>
       <Collage {...collage}>
-        <Image src="/images/Untitled_Artwork 2.png" layout="fill" objectFit="contain" objectPosition="bottom" />
+        <AnimatedCollage />
       </Collage>
       <Clouds {...clouds}>
         <Image src="/images/Untitled_Artwork 3.png" layout="fill" objectFit="contain" />
@@ -71,4 +72,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default TestHero;

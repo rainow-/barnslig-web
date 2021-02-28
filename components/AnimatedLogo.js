@@ -20,8 +20,6 @@ const AnimatedLogo = ({ onClick }) => {
   const onMouseOver = useCallback(() => set({ s: 1.1 }), [set]);
   const onMouseLeave = useCallback(() => set({ s: 1 }), [set]);
 
-  const interpolate = s.interpolate(trans);
-
   return (
     <AnimatedImg
       width="100%"
@@ -30,7 +28,7 @@ const AnimatedLogo = ({ onClick }) => {
       onMouseOver={onMouseOver}
       onMouseLeave={onMouseLeave}
       style={{
-        transform: interpolate
+        transform: s.interpolate(trans)
       }}>
       <Image src="/images/Untitled_Artwork 4.png" layout="fill" objectFit="contain" />
     </AnimatedImg>

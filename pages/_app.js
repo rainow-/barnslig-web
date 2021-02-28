@@ -25,7 +25,7 @@ const GlobalStyle = createGlobalStyle`
     height: 100%;
     margin: 0;
     padding: 0;
-    background-color: #253237;
+    background-color: rgba(34,109,121,1);
 
     font-size: 16px;
     font-family: ${({ fonts }) => fonts.body};
