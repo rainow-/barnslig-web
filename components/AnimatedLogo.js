@@ -1,30 +1,39 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import t from 'prop-types';
 import styled from 'styled-components';
 import { animated, useSpring } from 'react-spring';
 import { layout } from 'styled-system';
+import Image from 'next/image';
 
-const AnimatedImg = styled(animated.img)`
+const AnimatedImg = styled(animated.div)`
   ${layout};
 `;
 
-const calc = (x, y) => [-(y - window.innerHeight / 2) / 20, (x - window.innerWidth / 2) / 20, 1.1];
-const trans = (x, y, s) => `perspective(600px) rotateX(${x}deg) rotateY(${y}deg) scale(${s})`;
+const trans = s => `scale(${s})`;
 
 const AnimatedLogo = ({ onClick }) => {
-  const [spring, set] = useSpring(() => ({
-    xys: [0, 0, 1],
-    config: { mass: 5, tension: 350, friction: 20 }
+  const [{ s }, set] = useSpring(() => ({
+    s: 1,
+    config: { mass: 5, tension: 350, friction: 10 }
   }));
+
+  const onMouseOver = useCallback(() => set({ s: 1.1 }), [set]);
+  const onMouseLeave = useCallback(() => set({ s: 1 }), [set]);
+
+  const interpolate = s.interpolate(trans);
 
   return (
     <AnimatedImg
-      width={32}
-      src="/images/logo.svg"
+      width="100%"
+      height="100%"
       onClick={onClick}
-      onMouseMove={({ clientX: x, clientY: y }) => set({ xys: calc(x, y) })}
-      style={{ transform: spring.xys.interpolate(trans) }}
-    />
+      onMouseOver={onMouseOver}
+      onMouseLeave={onMouseLeave}
+      style={{
+        transform: interpolate
+      }}>
+      <Image src="/images/Untitled_Artwork 4.png" layout="fill" objectFit="contain" />
+    </AnimatedImg>
   );
 };
 

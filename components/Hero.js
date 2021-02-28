@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import Grid from './common/Grid';
 import Image from 'next/image';
 import Box from './common/Box';
+import AnimatedLogo from './AnimatedLogo';
 
 const Collage = styled(Box)``;
 const collage = {
@@ -52,7 +53,7 @@ const Hero = () => {
       templateRows="repeat(36, 1fr)"
       overflow="hidden">
       <Logo {...logo}>
-        <Image src="/images/Untitled_Artwork 4.png" layout="fill" objectFit="contain" />
+        <AnimatedLogo />
       </Logo>
       <Rainbow {...rainbow}>
         <Image src="/images/Untitled_Artwork.png" layout="fill" objectFit="cover" objectPosition="top" />
