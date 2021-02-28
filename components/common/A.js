@@ -3,7 +3,7 @@ import { typography, space, flexbox, zIndex } from 'styled-system';
 import { aliases } from '../../theme';
 
 const A = styled.a`
-  color: white;
+  color: black;
 
   ${typography};
   ${space};
