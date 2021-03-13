@@ -12,7 +12,8 @@ import {
   gridColumn,
   gridRow,
   zIndex,
-  background
+  background,
+  flexbox,
 } from 'styled-system';
 import { aliases } from '../../theme';
 
@@ -31,6 +32,7 @@ const Box = styled.div`
   ${gridColumn}
   ${gridRow}
   ${zIndex}
+  ${flexbox}
 `;
 
 export default Box;
