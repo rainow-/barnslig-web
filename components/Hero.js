@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Box from './common/Box';
 import AnimatedLogo from './AnimatedLogo';
 import AnimatedCollage from './AnimatedCollage';
+import AnimatedClouds from './AnimatedClouds';
 
 const Collage = styled(Box)``;
 const collage = {
@@ -78,7 +79,7 @@ const Hero = () => {
         <AnimatedCollage />
       </Collage>
       <Clouds {...clouds}>
-        <Image src="/images/Untitled_Artwork 3.png" layout="fill" objectFit="contain" />
+        <AnimatedClouds />
       </Clouds>
       <Darkness {...darkness}>
         <Image
