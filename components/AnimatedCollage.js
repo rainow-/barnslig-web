@@ -1,36 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useRef } from 'react';
 import Box from './common/Box';
-import useMousePosition from './hooks/useMousePosition';
 import Flex from './common/Flex';
+import useSize from './hooks/useSize';
+import useMightyMouse from 'react-hook-mighty-mouse';
 
-const cx = 1527 / 1.87;
-const cy = 934 / 2;
-
-const Collage = () => {
-  const { x: mx, y: my } = useMousePosition();
-  const [{ x, y }, setEyePosition] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const phi = Math.atan2(my - cy, mx - cx);
-    const nx = cx + 45 * Math.cos(phi);
-    const ny = cy + 45 * Math.sin(phi);
-    setEyePosition({ x: nx, y: ny });
-  }, [mx, my, x, y]);
-
-  return (
-    <>
-      <img src="/images/Untitled_Artwork 2.png" alt="Untitled_Artwork" />
-      <Box position="absolute" style={{ left: x, top: y }}>
-        <img height="60px" width="60px" src="/images/eye.png" alt="eye" />
-      </Box>
-    </>
-  );
+const degreesToRadians = (degrees) => {
+  if (degrees > 180) degrees -= 360;
+  return degrees * (Math.PI / 180) * -1;
 };
 
 const AnimatedCollage = () => {
+  const {
+    selectedElement: {
+      position: { x, y, angle }
+    }
+  } = useMightyMouse(true, 'eye', { x: 20, y: 20 });
+  const ref = useRef(null);
+  const size = useSize(ref);
+
+  const phi = degreesToRadians(angle);
+
+  const left = size?.width / 1.87 + Math.min(20, Math.abs(x)) * Math.cos(phi);
+  const top = size?.height / 2.02 + Math.min(20, Math.abs(y)) * Math.sin(phi);
+
   return (
-    <Flex maxH="934px" maxW="1527px" justify="center">
-      <Collage />
+    <Flex width="100%" height="100%" justify="center">
+      <Flex
+        width={size?.width || '100%'}
+        height={size?.height || '100%'}
+        justify="center"
+        position="relative">
+        <img ref={ref} src="/images/Untitled_Artwork 2.png" alt="Untitled_Artwork" />
+        <Box
+          position="absolute"
+          style={{ left, top }}>
+          <img height="40px" width="40px" src="/images/eye.png" alt="eye" />
+        </Box>
+        <Box id="eye" position="absolute" style={{ left: size?.width / 1.87, top: size?.height / 2.02 }} opacity={0} /> 
+      </Flex>
     </Flex>
   );
 };
