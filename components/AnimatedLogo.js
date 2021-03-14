@@ -14,10 +14,10 @@ const trans = s => `scale(${s})`;
 const AnimatedLogo = ({ onClick }) => {
   const [{ s }, set] = useSpring(() => ({
     s: 1,
-    config: { mass: 5, tension: 350, friction: 10 }
+    config: { mass: 5, tension: 300, friction: 10 }
   }));
 
-  const onMouseOver = useCallback(() => set({ s: 1.1 }), [set]);
+  const onMouseOver = useCallback(() => set({ s: 1.15 }), [set]);
   const onMouseLeave = useCallback(() => set({ s: 1 }), [set]);
 
   return (
