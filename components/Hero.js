@@ -13,13 +13,6 @@ const collage = {
   zIndex: 60,
   gridArea: '14 / 1 / 37 / 37'
 };
-/* const collage = {
-  position: 'absolute',
-  bottom: 0,
-  zIndex: 60,
-  height: '70vh',
-  justifySelf: 'center'
-} */
 
 const Rainbow = styled(Box)``;
 const rainbow = {
@@ -41,10 +34,12 @@ const logo = {
 
 const Clouds = styled(Box)``;
 const clouds = {
-  position: 'relative',
-  opacity: 0.8,
+  position: 'absolute',
+  top: '10vh',
   zIndex: 30,
-  gridArea: '1 / 3 / 28 / 35'
+  width: '90vw',
+  height: '55vh',
+  justifySelf: 'center',
 };
 
 const Darkness = styled(Box)``;
@@ -57,7 +52,7 @@ const darkness = {
 const Hero = () => {
   return (
     <Grid
-      bg="pink"
+      bg="#ffa1d8"
       zIndex="1"
       height="100vh"
       position="relative"
