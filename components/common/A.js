@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { typography, space, flexbox, zIndex } from 'styled-system';
+import { typography, space, flexbox, zIndex, color } from 'styled-system';
 import { aliases } from '../../theme';
 
 const A = styled.a`
@@ -9,6 +9,7 @@ const A = styled.a`
   ${space};
   ${flexbox};
   ${zIndex};
+  ${color};
   ${aliases};
 `;
 

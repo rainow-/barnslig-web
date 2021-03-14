@@ -54,7 +54,7 @@ const Hero = () => {
     <Grid
       bg="#ffa1d8"
       zIndex="1"
-      height="100vh"
+      height="100%"
       position="relative"
       templateColumns="repeat(36, 1fr)"
       templateRows="repeat(36, 1fr)"

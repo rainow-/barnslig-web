@@ -4,24 +4,34 @@ import Nav from './common/Nav';
 import List from './common/List';
 import ListItem from './common/ListItem';
 import Link from './common/Link';
-import Logo from './Logo';
 
-const Menu = () => {
+const navItems = [
+  {
+    href: '/',
+    text: 'About'
+  },
+  {
+    href: '/',
+    text: 'Projects'
+  },
+  {
+    href: '/',
+    text: 'Store'
+  },
+];
+
+const Menu = (props) => {
   return (
-    <Header display="flex" justify="space-between" align="center" py={3} px={10}>
-      <Logo />
+    <Header height="10vh" display="flex" align="center" justify="flex-end" py={3} px={3} {...props}>
       <Nav>
         <List>
-          <ListItem zIndex={2} mx={4}>
-            <Link href="/" fontSize={20}>
-              Projects
-            </Link>
-          </ListItem>
-          <ListItem zIndex={2} mx={4}>
-            <Link href="/" fontSize={20}>
-              Store
-            </Link>
-          </ListItem>
+          {navItems.map(item => (
+            <ListItem key={item.text} zIndex={2} mx={4}>
+              <Link href={item.href} fontSize={40} fontWeight={700} color="white">
+                {item.text}
+              </Link>
+            </ListItem>
+          ))}
         </List>
       </Nav>
     </Header>
