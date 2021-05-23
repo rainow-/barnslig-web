@@ -13,7 +13,7 @@ const trans = s => `scale(${s})`;
 
 const AnimatedLogo = ({ onClick }) => {
   const [{ s }, set] = useSpring(() => ({
-    s: 0.4,
+    s: 0.7,
     config: { mass: 5, tension: 300, friction: 10 },
   }));
 

@@ -6,6 +6,7 @@ import Box from '../common/Box';
 import AnimatedLogo from './AnimatedLogo';
 import AnimatedCollage from './AnimatedCollage';
 import AnimatedClouds from './AnimatedClouds';
+import Img from '../common/Img';
 
 const Collage = styled(Box)``;
 const collage = {
@@ -25,11 +26,11 @@ const rainbow = {
 const Logo = styled(Box)``;
 const logo = {
   position: 'absolute',
-  top: '10vh',
+  top: '2vh',
+  left: '3vw',
   zIndex: 70,
   height: ['143px', '186px'],
-  width: ['250px', '293px'],
-  justifySelf: 'center'
+  width: ['200px', '243px']
 };
 
 const Clouds = styled(Box)``;
@@ -39,14 +40,14 @@ const clouds = {
   zIndex: 30,
   width: '110vw',
   height: '55vh',
-  justifySelf: 'center',
+  justifySelf: 'center'
 };
 
 const Darkness = styled(Box)``;
 const darkness = {
-  position: 'relative',
+  position: 'absolute',
   zIndex: 50,
-  gridArea: '27 / 1 / 37 / 37'
+  gridArea: '30 / 1 / 37 / 37'
 };
 
 const Hero = () => {
@@ -58,7 +59,7 @@ const Hero = () => {
       position="relative"
       templateColumns="repeat(36, 1fr)"
       templateRows="repeat(36, 1fr)"
-      overflow="hidden">
+      /* overflow="hidden" */>
       <Logo {...logo} cursor="pointer">
         <AnimatedLogo />
       </Logo>
@@ -77,12 +78,7 @@ const Hero = () => {
         <AnimatedClouds />
       </Clouds>
       <Darkness {...darkness}>
-        <Image
-          src="/images/hero/darkness.png"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="bottom"
-        />
+        <Img src="/images/hero/25498-ai.svg" width="100vw" height="100%" />
       </Darkness>
     </Grid>
   );
