@@ -4,6 +4,7 @@ import Box from './common/Box';
 import Flex from './common/Flex';
 import Grid from './common/Grid';
 import Img from './common/Img';
+import Section from './common/Section';
 
 const AnimatedBox = motion.custom(Box);
 
@@ -16,11 +17,18 @@ const Hero = () => {
   };
 
   return (
-    <Box>
-      <Flex position="absolute" width="100%" justify={['center', 'flex-start']}>
-        <Img src="/images/logo.png" alt="Logo" maxWidth={250} my={[20, 5, 20]} mx={[0, 5, 20]} />
-      </Flex>
-      <Flex px={2} py={[16, 8, 0]} height="100vh" justify="center" alignItems="flex-end">
+    <Section mx="auto">
+      <Box position="absolute" left={["50%", 0]}>
+        <Img
+          src="/images/logo.png"
+          alt="Logo"
+          maxWidth={[200]}
+          position="relative"
+          left={["-50%", 10]}
+          top={[10]}
+        />
+      </Box>
+      <Flex px={2} py={[16, 8, 0]} minH="100vh" justify="center" alignItems="flex-end">
         <Grid
           position="relative"
           maxW="3xl"
@@ -34,13 +42,12 @@ const Hero = () => {
             animate="expand"
             position="absolute"
             gridArea={['1 / 9 / 5 / 17', '2 / 10 / 5 / 16']}
-            zIndex={-10}
             style={{ rotate: 5, willChange: 'transform' }}>
             <Img src="/images/coming-soon.png" alt="Coming Soon!" width="100%" height="100%" />
           </AnimatedBox>
         </Grid>
       </Flex>
-    </Box>
+    </Section>
   );
 };
 
