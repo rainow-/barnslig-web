@@ -28,9 +28,8 @@ const Hero = () => {
           top={[10]}
         />
       </Box>
-      <Flex px={2} py={[16, 8, 0]} minH="100vh" justify="center" alignItems="flex-end">
+      <Flex px={2} py={[16, 8, 0]} minH="100vh" overflowX="hidden" justify="center" alignItems="flex-end">
         <Grid
-          position="relative"
           maxW="3xl"
           templateColumns="repeat(16, 1fr)"
           templateRows="repeat(16, 1fr)">
